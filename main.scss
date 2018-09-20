@@ -29,7 +29,6 @@
 html {
   font-size: 62.5%;
   width: 100%;
-  height: 100%;
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -38,17 +37,19 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
   background-color: #000000;
+  color: #ffffff;
   font-family: "Roboto";
+  overflow-y: scroll;
 }
 
 .container {
   @include flex-column();
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
   background-image: url("./assets/background_pattern.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .header {
@@ -62,7 +63,7 @@ body {
   @include flex-row();
   justify-content: flex-start;
   height: 100%;
-  width: 18.75%;
+  width: 310px;
   img {
     width: 180px;
     height: 18px;
@@ -85,7 +86,7 @@ body {
   @include flex-row();
   justify-content: flex-start;
   height: 100%;
-  width: 18.75%;
+  width: 310px;
   div {
     height: 100%;
     width: 0.1rem;
@@ -157,13 +158,20 @@ body {
 }
 
 .slider {
-  width: 83.33%;
+  max-width: 1600px;
   height: 763px;
   background-image: url("./assets/slider_background.png");
+  background-repeat: no-repeat;
 }
 .banner {
   @include flex-row();
   justify-content: space-around;
+  .banner-cards {
+    z-index: 999;
+  }
+  .banner-bluepet {
+    margin-left: -16rem;
+  }
 }
 .banner-text {
   @include flex-column();
@@ -194,6 +202,9 @@ body {
     font-size: 2rem;
     font-weight: 700;
     padding: 1rem 2rem;
+    img {
+      margin-left: 10px;
+    }
   }
 }
 .control {
@@ -223,4 +234,281 @@ body {
 }
 .on {
   background-color: #ff0100;
+  border: 2px solid #ff0100;
+}
+
+.featured {
+  @include flex-row();
+  justify-content: space-between;
+  width: 1197px;
+  height: 35.8rem;
+  margin-top: -20rem;
+}
+
+.news-separator {
+  @include flex-column();
+  justify-content: space-between;
+}
+
+.news-separator {
+  @include flex-row();
+  justify-content: center;
+  margin-top: 2.2rem;
+  span {
+    width: 120px;
+    height: 1px;
+    background-color: #727f87;
+    border: none;
+  }
+  a {
+    @include flex-row();
+    justify-content: center;
+    margin: 0 1.9rem;
+    font-size: 1.4rem;
+    font-family: "Radiance";
+    border-radius: 0.2rem;
+    height: 2.4rem;
+    width: 5.2rem;
+    color: white;
+    background-color: #f31738;
+  }
+}
+
+.mainbody {
+  @include flex-row();
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1197px;
+}
+.news {
+  width: 65.5%;
+  font-family: "Radiance";
+}
+.news-top {
+  @include flex-row();
+  width: 100%;
+}
+.top-text {
+  @include flex-column();
+  align-items: flex-start;
+  width: 35.6rem;
+  margin-left: 2.2rem;
+  span {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin: 0;
+  }
+  .top-text-date {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #f31738;
+  }
+  .top-text-title {
+    font-size: 3.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .top-text-intro {
+    font-size: 18px;
+    color: #898989;
+  }
+}
+.card-wrapper {
+  @include flex-row();
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.news-card {
+  @include flex-column();
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 379px;
+  margin-top: 39px;
+  font-family: "Radiance";
+  span {
+    margin-top: 20px;
+    color: #feffff;
+    font-size: 3rem;
+  }
+  p {
+    margin-top: 10px;
+    color: #898989;
+    font-size: 2rem;
+  }
+}
+
+.widget {
+  @include flex-column();
+  justify-content: flex-start;
+  width: 30%;
+}
+.widget-tweets {
+  @include flex-column();
+  align-items: center;
+  width: 383px;
+  height: 242px;
+  box-shadow: 0 0 0 2px #242424;
+  border-radius: 4px;
+}
+
+.tweets-title {
+  @include flex-row();
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  height: 60px;
+  border-bottom: 2px solid #242424;
+  span:nth-child(1) {
+    color: #fffefe;
+    font-family: "Radiance";
+    font-size: 2.6rem;
+  }
+  span:nth-child(2) {
+    img {
+      margin-right: 11px;
+    }
+    color: #1379c1;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+.tweets-content {
+  @include flex-column();
+  align-items: flex-start;
+  width: 90%;
+  margin-top: 15px;
+  div {
+    @include flex-row();
+    width: 100%;
+    justify-content: space-between;
+    img {
+      margin-right: 16px;
+    }
+    div {
+      @include flex-column();
+      flex-grow: 2;
+      align-items: flex-start;
+      color: #ffffff;
+      font-family: Roboto;
+      font-size: 2rem;
+      font-weight: 300;
+    }
+    span {
+      color: #464f59;
+      font-size: 1.6rem;
+    }
+  }
+  .tweets-text {
+    color: #898989;
+    font-family: Radiance;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 19px;
+  }
+  .tweets-to {
+    color: #ffffff;
+    font-family: Radiance;
+    font-size: 16px;
+    margin-top: 19px;
+  }
+}
+
+.widget-prices {
+  @include flex-column();
+  font-family: Radiance;
+  justify-content: flex-start;
+  width: 384px;
+  height: 637px;
+  border-radius: 10px;
+  background-image: url("./assets/widget_prices_bg.png");
+  margin-top: 35px;
+  h3 {
+    width: 90%;
+    color: #fffefe;
+    font-size: 26px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}
+.prices-card {
+  @include flex-row();
+  justify-content: flex-start;
+  width: 90%;
+  border-bottom: 2px solid #242424;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  .card-priceinfo {
+    @include flex-column();
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 2;
+  }
+  .steam-price,
+  .pa-price {
+    @include flex-row();
+    width: 100%;
+    margin: 5px 0;
+    justify-content: space-around;
+  }
+  .card-title {
+    color: #848585;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 0 10px 10px;
+  }
+  .price-number {
+    color: #848585;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .price-change {
+    font-size: 16px;
+    font-weight: 300;
+    color: #f31738;
+  }
+  .price-link {
+    font-size: 16px;
+    font-weight: 300;
+    color: #fffefe;
+  }
+}
+.prices-border {
+  @include flex-row();
+  justify-content: center;
+  margin-top: 10px;
+  width: 257px;
+  height: 57px;
+  box-shadow: inset 0 0 0 1px #013799;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 33.82px;
+  text-transform: uppercase;
+  cursor: pointer;
+  img {
+    margin-left: 10px;
+  }
+}
+.prices-btn {
+  @include flex-row();
+  justify-content: center;
+  background-color: #002bf3;
+  width: 100%;
+  height: 100%;
+  margin: -20px 0 0 -20px;
+}
+.comingsoon img {
+  margin-top: 25px;
+}
+
+.search {
+  @include flex-row();
+  width: 100%;
+  max-width: 1920px;
+  height: 273px;
+  background-image: url("./assets/search_bg.png");
 }
