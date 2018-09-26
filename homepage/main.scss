@@ -26,6 +26,13 @@
   flex-direction: column;
   align-items: center;
 }
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
 
 html {
   font-size: 62.5%;
@@ -136,7 +143,9 @@ body {
   justify-content: center;
   width: 100%;
   height: 66px;
+  transition: all 0.3s;
   background-color: #f31738;
+  box-shadow: 0px 5px 5px #0e0204a2;
 }
 .navbar-shrink {
   position: fixed;
@@ -187,14 +196,17 @@ body {
   .right-arrow {
     @include flex-column();
     justify-content: center;
+    opacity: 0.3;
     margin-top: -200px;
     cursor: pointer;
     height: 50%;
     user-select: none;
+    transition: opacity 0.3s linear;
   }
   .left-arrow:hover,
   .right-arrow:hover {
-    background-color: rgba(#2c2c2c, 0.2);
+    opacity: 0.6;
+    background-color: rgba(#2c2c2c, 0.3);
   }
 }
 .slider {
@@ -204,14 +216,7 @@ body {
   background-image: url("../assets/slider_background.png");
   background-repeat: no-repeat;
 }
-.slider-banner-leftward {
-  transform: translateX(-10px);
-  transition: all 0.5s linear;
-}
-.slider-banner-righttward {
-  transform: translateX(10px);
-  transition: all 0.5s linear;
-}
+
 .banner {
   @include flex-row();
   justify-content: space-around;
@@ -401,7 +406,34 @@ body {
     font-size: 2rem;
   }
 }
-
+.news-loadmore {
+  @include flex-row();
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+.loadmore-btn {
+  @include flex-row();
+  width: 200px;
+  border-radius: 30px;
+  justify-content: center;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 2rem;
+  font-weight: 700;
+  height: 48px;
+  background-color: #2a2a2a;
+  will-change: transform, filter;
+  transition: all 0.2s ease-out;
+}
+.loadmore-btn:hover {
+  background: #f31738;
+  transform: scale(1.05);
+  transform-style: preserve-3d;
+  filter: brightness(1.05) contrast(1.05);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.425);
+}
 .widget {
   @include flex-column();
   justify-content: flex-start;
@@ -556,6 +588,7 @@ body {
     margin-left: 10px;
   }
 }
+
 .prices-btn {
   @include flex-row();
   justify-content: center;
@@ -563,6 +596,11 @@ body {
   width: 100%;
   height: 100%;
   margin: -20px 0 0 -20px;
+  transition: all 0.2s linear;
+}
+.prices-btn:hover {
+  filter: brightness(1.05) contrast(1.05);
+  transform: translate(10px, 10px);
 }
 .comingsoon img {
   margin-top: 25px;
@@ -589,7 +627,7 @@ body {
   font-size: 1.8rem;
   border: none;
   border-radius: 6px 0 0 6px;
-  background-color: rgba(#ffffff, 0.25); // Style for "Search for"
+  background-color: rgba(#ffffff, 0.25);
 }
 .search input:focus {
   outline-color: transparent;
