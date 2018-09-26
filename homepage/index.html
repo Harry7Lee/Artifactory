@@ -11,52 +11,36 @@
 
 <body>
     <div class="container">
+        <!-- *header -->
         <div class="header">
             <div class="socialmedia">
                 <img src="../assets/socialmedia_icons.png" alt="socialIcons" id='socialIcons'>
-                <!-- <ul>
-                    <li class="socialmedia-icon">facebook</li>
-                    <li class="socialmedia-icon">twitter</li>
-                    <li class="socialmedia-icon">google</li>
-                    <li class="socialmedia-icon">youtube</li>
-                    <li class="socialmedia-icon">instgram</li>
-                </ul> -->
             </div>
             <div class="logo" id='logo'>
-                <a href="/homepage/index.html">
-                    <img src="../assets/logo.png" alt="ArtifactoryLogo">
-                </a>
+                <a href="/homepage/index.html"></a>
             </div>
             <div class="login" id='login'>
-                <div id='vertical-line'></div>
-                <img src="../assets/steam_logo.png" alt="steam logo">
-                <span>Sign in through <span>STEAM</span></span>
+                <span>Sign in through &nbsp;</span>
+                <span>STEAM</span>
             </div>
         </div>
+        <!-- *navbar -->
         <div class="navbar" id='navbar'>
             <div class="homebtn">
-                <a href="/homepage/index.html">
-                    <img src="../assets/homebtn.png" alt="HOME">
-                </a>
+                <a href="/homepage/index.html"></a>
             </div>
             <div class="navbar-wrapper">
                 <div class="title">
-                    <span>NEWS
-                        <img src="../assets/downward_arrow.png">
-                    </span>
-                    <span>CARDS<img src="../assets/downward_arrow.png"></span>
-                    <div id='logo-navbar' style='display: none'>
-                        <img src="../assets/logo.png" alt="ArtifactoryLogo">
-                    </div>
-                    <span>DECKS<img src="../assets/downward_arrow.png"></span>
-                    <span>TOOLS<img src="../assets/downward_arrow.png"></span>
+                    <span>NEWS</span>
+                    <span>CARDS</span>
+                    <a href='/homepage/index.html' id='logo-navbar'></a>
+                    <span>DECKS</span>
+                    <span>TOOLS</span>
                 </div>
             </div>
         </div>
+        <!-- *slider -->
         <div class="slider-wrapper">
-            <div class="left-arrow" onclick="switchBanner(currentBanner-1)">
-                <img src="../assets/slider_left.png">
-            </div>
             <div class="slider">
                 <div class="banners" onmouseenter="mouseOver()" onmouseleave="mouseOut()">
                     <div class="banner">
@@ -113,18 +97,16 @@
                     </div>
                 </div>
                 <div class="control">
-                    <!-- <img src="../assets/control_previous.png" onclick="switchBanner(currentBanner-1)"> -->
+                    <img src="../assets/control_previous.png" onclick="switchBanner(currentBanner-1)">
                     <div class="control-dot" onclick="switchBanner(0)"></div>
                     <div class="control-dot" onclick="switchBanner(1)"></div>
                     <div class="control-dot" onclick="switchBanner(2)"></div>
                     <div class="control-dot" onclick="switchBanner(3)"></div>
-                    <!-- <img src="../assets/control_next.png" onclick="switchBanner(currentBanner+1)"> -->
+                    <img src="../assets/control_next.png" onclick="switchBanner(currentBanner+1)">
                 </div>
             </div>
-            <div class="right-arrow" onclick="switchBanner(currentBanner+1)">
-                <img src="../assets/slider_right.png">
-            </div>
         </div>
+        <!-- * three featured news -->
         <div class="featured">
             <div class="featured-news">
                 <img src="../assets/featurednew_1.png">
@@ -151,8 +133,10 @@
                 </div>
             </div>
         </div>
+        <!-- *body wrapper for news and .widget -->
         <div class="mainbody">
             <div class="news">
+                <!-- *top news -->
                 <div class="news-top">
                     <img src="../assets/news-top.png">
                     <div class="top-text">
@@ -164,6 +148,7 @@
                         </p>
                     </div>
                 </div>
+                <!-- *news list -->
                 <div class="card-wrapper">
                     <div class="news-card">
                         <img src="../assets/news-card1.png">
@@ -193,10 +178,11 @@
                 </div>
             </div>
             <div class="widget">
+                <!-- *twitter widget -->
                 <div class="widget-tweets">
                     <div class="tweets-title">
                         <span>LAST TWEETS</span>
-                        <span><img src="../assets/tweet_icon.png">Follow</span>
+                        <a href="https:\\twitter.com">Follow</a>
                     </div>
                     <div class="tweets-content">
                         <div>
@@ -212,6 +198,7 @@
                         <span class="tweets-to">Tweet to @artifactory</span>
                     </div>
                 </div>
+                <!-- *price widget -->
                 <div class="widget-prices">
                     <h3>BIGGEST PRICE CHANGES</h3>
                     <div class="prices-card">
@@ -268,7 +255,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="prices-border">
+                    <div class="prices-btn-border">
                         <a class='prices-btn'>SEE ALL CARD PRICES
                             <img src="../assets/right_arrow.png">
                         </a>

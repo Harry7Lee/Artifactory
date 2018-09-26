@@ -1,4 +1,5 @@
 // !home page SCSS
+// * default confirgurition of css for index page
 @font-face {
   font-family: "Roboto";
   src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2"),
@@ -9,9 +10,25 @@
 
 @font-face {
   font-family: "Radiance";
-  src: url("../assets/fonts/Radiance.woff2") format("woff2"),
-    url("../assets/fonts/Radiance.woff") format("woff");
+  src: url("Radiance-Semibold.woff2") format("woff2"),
+    url("Radiance-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("Radiance.woff2") format("woff2"),
+    url("Radiance.woff") format("woff");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("Radiance-Bold.woff2") format("woff2"),
+    url("Radiance-Bold.woff") format("woff");
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -55,16 +72,15 @@ body {
   @include flex-column();
   justify-content: flex-start;
   width: 100%;
-  background-image: url("../assets/background_pattern.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../assets/background_pattern.png") no-repeat center;
 }
 
+// * header
 .header {
   @include flex-row();
   justify-content: flex-start;
   width: 100%;
-  height: 7.8rem;
+  height: 78px;
   background-color: #000000;
   z-index: 9999999;
 }
@@ -76,7 +92,7 @@ body {
   img {
     width: 180px;
     height: 18px;
-    padding-left: 4rem;
+    padding-left: 40px;
   }
 }
 
@@ -91,7 +107,8 @@ body {
   flex-grow: 2;
   justify-content: center;
   height: 100%;
-  img {
+  background: url("../assets/logo.png") no-repeat center;
+  a {
     width: 243px;
     height: 35px;
   }
@@ -99,29 +116,18 @@ body {
 
 .login {
   @include flex-row();
-  justify-content: flex-start;
+  justify-content: center;
+  font-family: "Radiance";
   height: 100%;
   width: 310px;
-  div {
-    height: 100%;
-    width: 0.1rem;
-    background-color: #141414;
-    margin-right: 3.7rem;
-  }
-  img {
-    width: 32px;
-    height: 27px;
-    margin-right: 1.9rem;
-  }
-  span {
-    color: #bfbfbf;
-    font-family: "Radiance";
-    font-size: 1.8rem;
-    user-select: none;
-    span {
-      color: #fffefe;
-      font-weight: 700;
-    }
+  user-select: none;
+  color: #bfbfbf;
+  font-size: 1.8rem;
+  background: url("../assets/steam_logo.png") no-repeat 20px;
+  border-left: 1px solid #141414;
+  span:nth-child(2) {
+    color: #fffefe;
+    font-weight: 700;
   }
 }
 .login:hover {
@@ -129,27 +135,27 @@ body {
   cursor: pointer;
 }
 .login-shrink {
-  height: 50px !important;
+  height: 50px;
+  border: none;
   position: fixed;
   right: -50px;
   top: 0px;
   z-index: 9999999;
-  div {
-    display: none !important;
-  }
 }
+
+// * navbar
 .navbar {
   @include flex-row();
   justify-content: center;
   width: 100%;
   height: 66px;
-  transition: all 0.3s;
+  transition: all 0.3s linear;
   background-color: #f31738;
   box-shadow: 0px 5px 5px #0e0204a2;
 }
 .navbar-shrink {
   position: fixed;
-  height: 50px !important;
+  height: 50px;
   z-index: 99999;
 }
 .navbar-wrapper {
@@ -157,19 +163,25 @@ body {
   justify-content: center;
   min-width: 62.5%;
   height: 100%;
+  span {
+    width: 100px;
+    background: url("../assets/downward_arrow.png") no-repeat right center;
+  }
 }
 .homebtn {
   @include flex-column();
   justify-content: center;
-  width: 6.6rem;
+  width: 66px;
   height: 99%;
   background-color: #ffffff;
-  margin-right: -6.6rem;
+  margin-right: -66px;
   margin-top: -2.5px;
   z-index: 999;
-}
-.homebtn:hover {
-  cursor: pointer;
+  a {
+    width: 100%;
+    height: 100%;
+    background: url("../assets/homebtn.png") no-repeat center;
+  }
 }
 
 .title {
@@ -180,41 +192,30 @@ body {
   font-family: "Radiance";
   font-size: 2rem;
   font-weight: 300;
-  line-height: 2.7rem;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: #ffffff;
-  span:hover {
+  span {
     cursor: pointer;
   }
+  a {
+    display: none;
+    width: 300px;
+    height: 100%;
+    background: url("../assets/logo.png") no-repeat center;
+  }
 }
+
+// * slider
 .slider-wrapper {
   @include flex-row();
   justify-content: center;
-  align-items: center;
-  .left-arrow,
-  .right-arrow {
-    @include flex-column();
-    justify-content: center;
-    opacity: 0.3;
-    margin-top: -200px;
-    cursor: pointer;
-    height: 50%;
-    user-select: none;
-    transition: opacity 0.3s linear;
-  }
-  .left-arrow:hover,
-  .right-arrow:hover {
-    opacity: 0.6;
-    background-color: rgba(#2c2c2c, 0.3);
-  }
 }
 .slider {
   @include flex-column();
   max-width: 1600px;
   height: 763px;
-  background-image: url("../assets/slider_background.png");
-  background-repeat: no-repeat;
+  background: url("../assets/slider_background.png") no-repeat;
 }
 
 .banner {
@@ -222,12 +223,11 @@ body {
   justify-content: space-around;
   display: none;
   cursor: pointer;
-  // position: absolute;
   .banner-cards {
     z-index: 999;
   }
   .banner-bluepet {
-    margin-left: -16rem;
+    margin-left: -160px;
   }
 }
 .banner-text {
@@ -258,7 +258,7 @@ body {
     color: white;
     font-size: 2rem;
     font-weight: 700;
-    padding: 1rem 2rem;
+    padding: 10px 20px;
     img {
       margin-left: 10px;
     }
@@ -270,11 +270,11 @@ body {
   width: 100%;
   height: 25px;
   div {
-    margin: 0 1rem;
+    margin: 0 10px;
     cursor: pointer;
   }
   img {
-    margin: 0 1rem;
+    margin: 0 10px;
     cursor: pointer;
   }
 }
@@ -282,21 +282,21 @@ body {
 .control-dot {
   border-radius: 100%;
   border: 2px solid #798083;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 13px;
+  height: 13px;
 }
 
 .on {
   background-color: #ff0100;
   border: 2px solid #ff0100;
 }
-
+// * three featured news
 .featured {
   @include flex-row();
   justify-content: space-between;
   width: 1197px;
-  height: 35.8rem;
-  margin-top: -20rem;
+  height: 358px;
+  margin-top: -200px;
   img {
     border: 2px solid transparent;
     cursor: pointer;
@@ -307,14 +307,9 @@ body {
 }
 
 .news-separator {
-  @include flex-column();
-  justify-content: space-between;
-}
-
-.news-separator {
   @include flex-row();
   justify-content: center;
-  margin-top: 2.2rem;
+  margin-top: 22px;
   span {
     width: 120px;
     height: 1px;
@@ -324,17 +319,18 @@ body {
   a {
     @include flex-row();
     justify-content: center;
-    margin: 0 1.9rem;
+    margin: 0 19px;
     font-size: 1.4rem;
     font-family: "Radiance";
-    border-radius: 0.2rem;
-    height: 2.4rem;
-    width: 5.2rem;
+    border-radius: 2px;
+    height: 24px;
+    width: 52px;
     color: white;
     background-color: #f31738;
   }
 }
 
+// *body wrapper for news and .widget
 .mainbody {
   @include flex-row();
   justify-content: space-between;
@@ -359,10 +355,10 @@ body {
 .top-text {
   @include flex-column();
   align-items: flex-start;
-  width: 35.6rem;
-  margin-left: 2.2rem;
+  width: 356px;
+  margin-left: 22px;
   span {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
   }
   p {
     margin: 0;
@@ -434,6 +430,8 @@ body {
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(255, 0, 0, 0.425);
 }
+
+// *widget
 .widget {
   @include flex-column();
   justify-content: flex-start;
@@ -455,15 +453,16 @@ body {
   width: 90%;
   height: 60px;
   border-bottom: 2px solid #242424;
-  span:nth-child(1) {
+  span {
     color: #fffefe;
     font-family: "Radiance";
     font-size: 2.6rem;
   }
-  span:nth-child(2) {
-    img {
-      margin-right: 11px;
-    }
+  a {
+    @include flex-row();
+    justify-content: flex-end;
+    width: 70px;
+    background: url("../assets/tweet_icon.png") no-repeat left;
     color: #1379c1;
     font-family: Roboto;
     font-size: 16px;
@@ -518,7 +517,7 @@ body {
   width: 384px;
   height: 637px;
   border-radius: 10px;
-  background-image: url("../assets/widget_prices_bg.png");
+  background: url("../assets/widget_prices_bg.png") no-repeat center;
   margin-top: 35px;
   h3 {
     width: 90%;
@@ -570,7 +569,7 @@ body {
     color: #fffefe;
   }
 }
-.prices-border {
+.prices-btn-border {
   @include flex-row();
   justify-content: center;
   margin-top: 10px;
@@ -606,6 +605,7 @@ body {
   margin-top: 25px;
 }
 
+// *bottom news search bar
 .search {
   @include flex-row();
   justify-content: center;
@@ -656,7 +656,7 @@ body {
   outline-style: none;
   outline-color: transparent;
 }
-
+// *footer
 .footer {
   background-color: #0e0e0e;
   width: 100%;

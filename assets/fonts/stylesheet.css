@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Radiance';
+    src: url('Radiance-Semibold.woff2') format('woff2'),
+        url('Radiance-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Radiance';
+    src: url('Radiance.woff2') format('woff2'),
+        url('Radiance.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Radiance';
+    src: url('Radiance-Bold.woff2') format('woff2'),
+        url('Radiance-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
