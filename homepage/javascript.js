@@ -73,14 +73,14 @@ function scrollFunction() {
     document.getElementById("navbar").className = "navbar navbar-shrink";
     document.getElementById("logo-navbar").style.display = "flex";
     document.getElementById("logo").style.display = "none";
-    document.getElementById("socialIcons").className =
+    document.getElementById("socialmedia").className =
       "socialmedia socialmedia-shrink";
     document.getElementById("login").className = "login login-shrink";
   } else {
     document.getElementById("navbar").className = "navbar";
     document.getElementById("logo").style.display = "flex";
     document.getElementById("logo-navbar").style.display = "none";
-    document.getElementById("socialIcons").className = "socialmedia";
+    document.getElementById("socialmedia").className = "socialmedia";
     document.getElementById("login").className = "login";
   }
 }
