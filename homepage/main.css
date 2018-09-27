@@ -459,6 +459,8 @@ body {
   border: 2px solid #798083;
   width: 13px;
   height: 13px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .on {
@@ -719,15 +721,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #ffffff;
   font-family: Radiance;
   font-size: 2rem;
   font-weight: 700;
   height: 48px;
   background-color: #2a2a2a;
-  will-change: transform, filter;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
+  will-change: transform, filter;
 }
 
 .loadmore-btn:hover {

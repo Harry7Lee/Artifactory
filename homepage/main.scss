@@ -284,6 +284,7 @@ body {
   border: 2px solid #798083;
   width: 13px;
   height: 13px;
+  transition: all 0.3s linear;
 }
 
 .on {
@@ -413,14 +414,13 @@ body {
   width: 200px;
   border-radius: 30px;
   justify-content: center;
-  color: #ffffff;
   font-family: Radiance;
   font-size: 2rem;
   font-weight: 700;
   height: 48px;
   background-color: #2a2a2a;
-  will-change: transform, filter;
   transition: all 0.2s ease-out;
+  will-change: transform, filter;
 }
 .loadmore-btn:hover {
   background: #f31738;

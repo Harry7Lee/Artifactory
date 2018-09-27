@@ -7,9 +7,31 @@
 
 @font-face {
   font-family: "Radiance";
-  src: url("../assets/fonts/Radiance.woff2") format("woff2"), url("../assets/fonts/Radiance.woff") format("woff");
+  src: url("Radiance-Semibold.woff2") format("woff2"), url("Radiance-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("Radiance.woff2") format("woff2"), url("Radiance.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Radiance";
+  src: url("Radiance-Bold.woff2") format("woff2"), url("Radiance-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 html {
@@ -45,9 +67,7 @@ body {
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 100%;
-  background-image: url("../assets/background_pattern.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  background: url("../assets/background_pattern.png") no-repeat center;
 }
 
 .header {
@@ -65,8 +85,9 @@ body {
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: 100%;
-  height: 7.8rem;
+  height: 78px;
   background-color: #000000;
+  z-index: 9999999;
 }
 
 .socialmedia {
@@ -90,7 +111,7 @@ body {
 .socialmedia img {
   width: 180px;
   height: 18px;
-  padding-left: 4rem;
+  padding-left: 40px;
 }
 
 .socialmedia-shrink {
@@ -118,9 +139,10 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100%;
+  background: url("../assets/logo.png") no-repeat center;
 }
 
-.logo img {
+.logo a {
   width: 243px;
   height: 35px;
 }
@@ -136,37 +158,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Radiance";
   height: 100%;
   width: 310px;
-}
-
-.login div {
-  height: 100%;
-  width: 0.1rem;
-  background-color: #141414;
-  margin-right: 3.7rem;
-}
-
-.login img {
-  width: 32px;
-  height: 27px;
-  margin-right: 1.9rem;
-}
-
-.login span {
-  color: #bfbfbf;
-  font-family: "Radiance";
-  font-size: 1.8rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  color: #bfbfbf;
+  font-size: 1.8rem;
+  background: url("../assets/steam_logo.png") no-repeat 20px;
+  border-left: 1px solid #141414;
 }
 
-.login span span {
+.login span:nth-child(2) {
   color: #fffefe;
   font-weight: 700;
 }
@@ -177,15 +185,12 @@ body {
 }
 
 .login-shrink {
-  height: 50px !important;
+  height: 50px;
+  border: none;
   position: fixed;
   right: -50px;
   top: 0px;
   z-index: 9999999;
-}
-
-.login-shrink div {
-  display: none !important;
 }
 
 .navbar {
@@ -204,12 +209,17 @@ body {
           justify-content: center;
   width: 100%;
   height: 66px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   background-color: #f31738;
+  -webkit-box-shadow: 0px 5px 5px #0e0204a2;
+          box-shadow: 0px 5px 5px #0e0204a2;
 }
 
 .navbar-shrink {
   position: fixed;
-  height: 50px !important;
+  height: 50px;
+  z-index: 99999;
 }
 
 .navbar-wrapper {
@@ -230,6 +240,11 @@ body {
   height: 100%;
 }
 
+.navbar-wrapper span {
+  width: 100px;
+  background: url("../assets/downward_arrow.png") no-repeat right center;
+}
+
 .homebtn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -244,16 +259,18 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 6.6rem;
+  width: 66px;
   height: 99%;
   background-color: #ffffff;
-  margin-right: -6.6rem;
+  margin-right: -66px;
   margin-top: -2.5px;
   z-index: 999;
 }
 
-.homebtn:hover {
-  cursor: pointer;
+.homebtn a {
+  width: 100%;
+  height: 100%;
+  background: url("../assets/homebtn.png") no-repeat center;
 }
 
 .title {
@@ -274,14 +291,20 @@ body {
   font-family: "Radiance";
   font-size: 2rem;
   font-weight: 300;
-  line-height: 2.7rem;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   color: #ffffff;
 }
 
-.title span:hover {
+.title span {
   cursor: pointer;
+}
+
+.title a {
+  display: none;
+  width: 300px;
+  height: 100%;
+  background: url("../assets/logo.png") no-repeat center;
 }
 
 .body-wrapper {
