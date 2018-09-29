@@ -208,8 +208,7 @@ body {
 
 .body-wrapper {
   @include flex-column();
-  background-image: url("../assets/slider_background.png");
-  background-repeat: no-repeat;
+  background: url("../assets/slider_background.png") no-repeat center;
   width: 100%;
 }
 .mainbody {

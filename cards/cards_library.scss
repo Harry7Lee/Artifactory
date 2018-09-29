@@ -1,4 +1,4 @@
-// !home page SCSS
+// !cards library SCSS
 // * default confirgurition of css for index page
 @font-face {
   font-family: "Roboto";
@@ -38,7 +38,6 @@
   font-weight: 300;
   font-style: normal;
 }
-
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -209,405 +208,360 @@ body {
   }
 }
 
-// * slider
-.slider-wrapper {
+// *breadcrumb
+.breadcrumb {
   @include flex-row();
-  justify-content: center;
+  width: 1197px;
+  margin-top: 19px;
+  color: #878787;
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #878787;
+    text-decoration: none;
+    font-size: 1.6rem;
+  }
 }
-.slider {
+.body-wrapper {
   @include flex-column();
-  max-width: 1600px;
-  height: 763px;
   background: url("../assets/slider_background.png") no-repeat;
-}
-
-.banner {
-  @include flex-row();
-  justify-content: space-around;
-  display: none;
-  cursor: pointer;
-  .banner-cards {
-    z-index: 1;
-  }
-  .banner-bluepet {
-    margin-left: -160px;
-  }
-}
-.banner-text {
-  @include flex-column();
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-left: -15%;
-  width: 30%;
-  height: 60%;
-  z-index: 1;
-  span {
-    color: #ffffff;
-    font-family: Radiance;
-    font-size: 6.7rem;
-    font-weight: 700;
-  }
-  span:nth-child(2) {
-    color: #f31738;
-  }
-  p {
-    color: #898a8a;
-    font-size: 2rem;
-    font-weight: 300;
-  }
-  a {
-    @include flex-row();
-    background-color: #ff0100;
-    color: white;
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 10px 20px;
-    img {
-      margin-left: 10px;
-    }
-  }
-}
-.control {
-  @include flex-row();
-  justify-content: center;
   width: 100%;
-  height: 25px;
-  div {
-    margin: 0 10px;
-    cursor: pointer;
-  }
-  img {
-    margin: 0 10px;
-    cursor: pointer;
-  }
 }
-
-.control-dot {
-  border-radius: 100%;
-  border: 2px solid #798083;
-  width: 13px;
-  height: 13px;
-  transition: all 0.3s linear;
-}
-
-.on {
-  background-color: #ff0100;
-  border: 2px solid #ff0100;
-}
-// * three featured news
-.featured {
-  @include flex-row();
-  justify-content: space-between;
-  width: 1197px;
-  height: 358px;
-  margin-top: -200px;
-  img {
-    border: 2px solid transparent;
-    cursor: pointer;
-  }
-  img:hover {
-    border: 2px solid #f31738;
-  }
-}
-
-.news-separator {
-  @include flex-row();
-  justify-content: center;
-  margin-top: 22px;
-  span {
-    width: 120px;
-    height: 1px;
-    background-color: #727f87;
-    border: none;
-  }
-  a {
-    @include flex-row();
-    justify-content: center;
-    margin: 0 19px;
-    font-size: 1.4rem;
-    font-family: "Radiance";
-    border-radius: 2px;
-    height: 24px;
-    width: 52px;
-    color: white;
-    background-color: #f31738;
-  }
-}
-
-// *body wrapper for news and .widget
+// *main body
 .mainbody {
-  @include flex-row();
-  justify-content: space-between;
-  align-items: flex-start;
+  @include flex-column();
+  justify-content: flex-start;
   width: 1197px;
+  margin-top: 27px;
 }
-.news {
-  width: 65.5%;
-  font-family: "Radiance";
-  img {
-    border: 2px solid transparent;
-    cursor: pointer;
-  }
-  img:hover {
-    border: 2px solid #f31738;
+
+// *page title
+.page-title {
+  @include flex-row();
+  justify-content: flex-start;
+  width: 100%;
+  h2 {
+    margin: 0;
+    color: #ffffff;
+    font-family: Radiance;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 30px;
+    text-transform: uppercase;
   }
 }
-.news-top {
+.logo-svg {
+  fill: blue;
+}
+.logo-svg:hover {
+  fill: red;
+}
+// *filters
+.card-filters {
+  @include flex-column();
+  width: 100%;
+  margin-top: 35px;
+}
+.filters-buttons {
   @include flex-row();
   width: 100%;
 }
-.top-text {
-  @include flex-column();
-  align-items: flex-start;
-  width: 356px;
-  margin-left: 22px;
-  span {
-    margin-bottom: 10px;
-  }
-  p {
-    margin: 0;
-  }
-  .top-text-date {
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #f31738;
-  }
-  .top-text-title {
-    font-size: 3.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  .top-text-intro {
-    font-size: 18px;
-    color: #898989;
-  }
-}
-.card-wrapper {
+// *filter types
+.filters-type {
   @include flex-row();
   justify-content: space-between;
-  flex-wrap: wrap;
+  width: 60%;
 }
-.news-card {
+.type-card {
   @include flex-column();
-  justify-content: space-around;
-  align-items: flex-start;
-  width: 379px;
-  margin-top: 39px;
-  font-family: "Radiance";
-  span {
-    margin-top: 20px;
-    color: #feffff;
-    font-size: 3rem;
-  }
-  p {
-    margin-top: 10px;
-    color: #898989;
-    font-size: 2rem;
-  }
+  justify-content: space-between;
+  width: 72px;
+  height: 98px;
 }
-.news-loadmore {
-  @include flex-row();
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-}
-.loadmore-btn {
-  @include flex-row();
-  width: 200px;
-  border-radius: 30px;
-  justify-content: center;
-  font-family: Radiance;
-  font-size: 2rem;
-  font-weight: 700;
-  height: 48px;
-  background-color: #2a2a2a;
-  transition: all 0.2s ease-in-out;
-  will-change: transform, filter;
-}
-.loadmore-btn:hover {
-  background: #f31738;
-  transform: scale(1.05);
-  transform-style: preserve-3d;
-  filter: brightness(1.05) contrast(1.05);
+.type-icon {
+  width: 100%;
+  height: 72px;
+  border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.425);
 }
-
-// *widget
-.widget {
-  @include flex-column();
-  justify-content: flex-start;
-  width: 30%;
+.type-icon:hover {
+  background-color: #f31738;
 }
-.widget-tweets {
-  @include flex-column();
-  align-items: center;
-  width: 383px;
-  height: 242px;
-  box-shadow: 0 0 0 2px #242424;
-  border-radius: 4px;
-}
-
-.tweets-title {
+.corner-mark {
   @include flex-row();
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 90%;
-  height: 60px;
-  border-bottom: 2px solid #242424;
-  span {
-    color: #fffefe;
-    font-family: "Radiance";
-    font-size: 2.6rem;
-  }
-  a {
-    @include flex-row();
-    justify-content: flex-end;
-    width: 70px;
-    background: url("../assets/tweet_icon.png") no-repeat left;
-    color: #1379c1;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 300;
-  }
-}
-.tweets-content {
-  @include flex-column();
-  align-items: flex-start;
-  width: 90%;
-  margin-top: 15px;
-  div {
-    @include flex-row();
-    width: 100%;
-    justify-content: space-between;
-    img {
-      margin-right: 16px;
-    }
-    div {
-      @include flex-column();
-      flex-grow: 2;
-      align-items: flex-start;
-      color: #ffffff;
-      font-family: Roboto;
-      font-size: 2rem;
-      font-weight: 300;
-    }
-    span {
-      color: #464f59;
-      font-size: 1.6rem;
-    }
-  }
-  .tweets-text {
-    color: #898989;
-    font-family: Radiance;
-    font-size: 18px;
-    font-weight: 300;
-    margin-top: 19px;
-  }
-  .tweets-to {
-    color: #ffffff;
-    font-family: Radiance;
-    font-size: 16px;
-    margin-top: 19px;
-  }
-}
-
-.widget-prices {
-  @include flex-column();
-  font-family: Radiance;
-  justify-content: flex-start;
-  width: 384px;
-  height: 637px;
-  border-radius: 10px;
-  background: url("../assets/widget_prices_bg.png") no-repeat center;
-  margin-top: 35px;
-  h3 {
-    width: 90%;
-    color: #fffefe;
-    font-size: 26px;
-    font-weight: 300;
-    text-transform: uppercase;
-  }
-}
-.prices-card {
-  @include flex-row();
-  justify-content: flex-start;
-  width: 90%;
-  border-bottom: 2px solid #242424;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  .card-priceinfo {
-    @include flex-column();
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-grow: 2;
-  }
-  .steam-price,
-  .pa-price {
-    @include flex-row();
-    width: 100%;
-    margin: 5px 0;
-    justify-content: space-around;
-  }
-  .card-title {
-    color: #848585;
-    font-size: 20px;
-    font-weight: 300;
-    margin: 0 0 10px 10px;
-  }
-  .price-number {
-    color: #848585;
-    font-size: 16px;
-    font-weight: 300;
-  }
-  .price-change {
-    font-size: 16px;
-    font-weight: 300;
-    color: #f31738;
-  }
-  .price-link {
-    font-size: 16px;
-    font-weight: 300;
-    color: #fffefe;
-  }
-}
-.prices-btn-border {
-  @include flex-row();
+  position: relative;
+  top: -5px;
+  left: 55px;
   justify-content: center;
-  margin-top: 10px;
-  width: 257px;
-  height: 57px;
-  box-shadow: inset 0 0 0 1px #f31738;
+  width: 26px;
+  height: 16px;
+  color: #f31738;
+  font-family: Radiance;
+  font-size: 1.2rem;
+  background: #ffffff;
+  border-radius: 2px;
+}
+.type-name {
   color: #ffffff;
   font-family: Radiance;
-  font-size: 19px;
+  font-size: 1.6rem;
   font-weight: 300;
-  line-height: 33.82px;
   text-transform: uppercase;
+}
+.viewall {
+  background: url("../assets/cards/btn_viewall.png") no-repeat center;
+}
+.heroes {
+  background: url("../assets/cards/btn-heroes.png") no-repeat center;
+}
+.spells {
+  background: url("../assets/cards/btn-spells.png") no-repeat center;
+}
+.items {
+  background: url("../assets/cards/btn-items.png") no-repeat center;
+}
+.creeps {
+  background: url("../assets/cards/btn-creeps.png") no-repeat center;
+}
+.improve {
+  background: url("../assets/cards/btn-improve.png") no-repeat center;
+}
+.filter-seprartor {
+  width: 1px;
+  height: 80px;
+  background: #545454;
+}
+
+// *rarity color
+.rarity-color-wrapper {
+  @include flex-row();
+  justify-content: space-around;
+  width: 40%;
+  padding-left: 20px;
+}
+//*filter rarity
+.filters-rarity,
+.filters-color {
+  @include flex-column();
+  width: 40%;
+  height: 98px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.filter-title {
+  color: #ffffff;
+  font-family: Radiance;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.rarity-btns,
+.color-btns {
+  @include flex-row();
+  width: 100%;
+  height: 52px;
+  justify-content: space-between;
+}
+.btn-rarity,
+.btn-color {
+  @include flex-column();
+  justify-content: flex-end;
+  width: 31px;
+  height: 52px;
   cursor: pointer;
-  img {
-    margin-left: 10px;
+  filter: brightness(0.7);
+  transition: all 0.2s ease-in-out;
+  span {
+    color: #6b6b6b;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
+.btn-rarity:hover,
+.btn-color:hover {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.rare {
+  background: url("../assets/cards/btn_rare.png") no-repeat top;
+}
+.common {
+  background: url("../assets/cards/btn_common.png") no-repeat top;
+}
+.uncommon {
+  background: url("../assets/cards/btn_uncommon.png") no-repeat top;
+}
+.epic {
+  background: url("../assets/cards/btn_epic.png") no-repeat top;
+}
+.green {
+  background: url("../assets/cards/btn_green.png") no-repeat top;
+}
+.red {
+  background: url("../assets/cards/btn_red.png") no-repeat top;
+}
+.grey {
+  background: url("../assets/cards/btn_grey.png") no-repeat top;
+}
+.blue {
+  background: url("../assets/cards/btn_blue.png") no-repeat top;
+}
+
+// *slider-search-wrapper
+.slider-search-wrapper {
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #545454;
+}
+
+// *card list
+.card-list {
+  @include flex-column();
+  justify-content: flex-start;
+  width: 100%;
+  height: 1000px;
+}
+.list-header {
+  @include flex-row();
+  width: 100%;
+  justify-content: space-between;
+}
+.header-title {
+  @include flex-row();
+  width: 216px;
+  height: 23px;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 30px;
+  span:nth-child(2) {
+    color: #6b6b6b;
   }
 }
 
-.prices-btn {
+// *card list wrapper
+.list-wrapper {
   @include flex-row();
-  justify-content: center;
-  background-color: #f31738;
   width: 100%;
-  height: 100%;
-  margin: -20px 0 0 -20px;
-  transition: all 0.2s linear;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
-.prices-btn:hover {
-  filter: brightness(1.05) contrast(1.05);
-  transform: translate(10px, 10px);
+.card-slot {
+  @include flex-column();
+  margin-right: 20px;
 }
-.comingsoon img {
-  margin-top: 25px;
+.slot-body {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
+.slot-body:hover {
+  transform: scale(-1, 1);
+  opacity: 0;
+}
+.slot-price {
+  @include flex-row();
+  justify-content: space-between;
+  background-image: url("../assets/steam_logo.png");
+  background-size: 22px 17px;
+  background-repeat: no-repeat;
+  background-position: 1px 5px;
+  width: 100%;
+  height: 35px;
+  font-size: 1.6rem;
+  span:nth-child(1) {
+    margin-left: 25px;
+  }
+}
+.slot-back {
+  @include flex-column();
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 182px;
+  height: 278px;
+  background: #262626;
+  border: 10px solid #2a2a2a;
+  border-radius: 4px;
+  // !need to change the image opacity to 0.3
+  background-image: url("../assets/cards/back-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.back-title {
+  @include flex-row();
+}
+.back-stats {
+  @include flex-row();
+  justify-content: center;
+  width: 80%;
+  background: url("../assets/cards/back_stat.png") no-repeat center;
+  padding-left: 20%;
+  span {
+    width: 30%;
+  }
+}
+
+.slot-loading-text {
+  @include flex-row();
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  font-size: 1.6rem;
+}
+
+.sortby-view-wrapper {
+  @include flex-row();
+  justify-content: space-around;
+  width: 320px;
+}
+.sortby {
+  background: url("../assets/cards/sortby_arrowdown.png") no-repeat right;
+  padding-right: 10px;
+}
+.sortby-dropdown {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none; // Style for "All News"
+  color: #f31738;
+  font-family: Radiance;
+  font-size: 1.6rem;
+  padding: 5px 10px;
+}
+.sortby-dropdown:focus {
+  outline: none;
+}
+
+.sortby-text {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.views {
+  @include flex-row();
+  justify-content: space-around;
+  width: 100px;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.view-pic {
+  width: 12px;
+  height: 12px;
+  background: url("../assets/cards/view_pic.png") no-repeat center;
+}
+.view-list {
+  width: 12px;
+  height: 12px;
+  background: url("../assets/cards/view_list.png") no-repeat center;
+}
 // *bottom news search bar
 .search {
   @include flex-row();
