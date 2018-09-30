@@ -38,6 +38,12 @@
   font-weight: 300;
   font-style: normal;
 }
+@font-face {
+  font-family: "Nunito";
+  src: url("Nunito.woff2") format("woff2"), url("Nunito.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -416,103 +422,7 @@ body {
   border-bottom: 1px solid #545454;
 }
 
-// *card list
-.card-list {
-  @include flex-column();
-  justify-content: flex-start;
-  width: 100%;
-  height: 1000px;
-}
-.list-header {
-  @include flex-row();
-  width: 100%;
-  justify-content: space-between;
-}
-.header-title {
-  @include flex-row();
-  width: 216px;
-  height: 23px;
-  color: #ffffff;
-  font-family: Radiance;
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 30px;
-  span:nth-child(2) {
-    color: #6b6b6b;
-  }
-}
-
-// *card list wrapper
-.list-wrapper {
-  @include flex-row();
-  width: 100%;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.card-slot {
-  @include flex-column();
-  margin-right: 20px;
-}
-.slot-body {
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.slot-body:hover {
-  transform: scale(-1, 1);
-  opacity: 0;
-}
-.slot-price {
-  @include flex-row();
-  justify-content: space-between;
-  background-image: url("../assets/steam_logo.png");
-  background-size: 22px 17px;
-  background-repeat: no-repeat;
-  background-position: 1px 5px;
-  width: 100%;
-  height: 35px;
-  font-size: 1.6rem;
-  span:nth-child(1) {
-    margin-left: 25px;
-  }
-}
-.slot-back {
-  @include flex-column();
-  justify-content: space-around;
-  box-sizing: border-box;
-  width: 182px;
-  height: 278px;
-  background: #262626;
-  border: 10px solid #2a2a2a;
-  border-radius: 4px;
-  // !need to change the image opacity to 0.3
-  background-image: url("../assets/cards/back-image.png");
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.back-title {
-  @include flex-row();
-}
-.back-stats {
-  @include flex-row();
-  justify-content: center;
-  width: 80%;
-  background: url("../assets/cards/back_stat.png") no-repeat center;
-  padding-left: 20%;
-  span {
-    width: 30%;
-  }
-}
-
-.slot-loading-text {
-  @include flex-row();
-  justify-content: center;
-  width: 100%;
-  height: 35px;
-  font-size: 1.6rem;
-}
-
+// *sort by and views
 .sortby-view-wrapper {
   @include flex-row();
   justify-content: space-around;
@@ -562,6 +472,265 @@ body {
   height: 12px;
   background: url("../assets/cards/view_list.png") no-repeat center;
 }
+// *card list
+.card-list {
+  @include flex-column();
+  justify-content: flex-start;
+  width: 100%;
+  height: 1000px;
+  margin-top: 26px;
+}
+.list-header {
+  @include flex-row();
+  width: 100%;
+  justify-content: space-between;
+}
+.header-title {
+  @include flex-row();
+  width: 216px;
+  height: 23px;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 30px;
+  span:nth-child(2) {
+    color: #6b6b6b;
+  }
+}
+
+// *card list wrapper
+.list-wrapper {
+  @include flex-row();
+  width: 100%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.clear {
+  @include flex-row();
+  width: 1192px;
+  height: 100px;
+  font-size: 2rem;
+}
+
+// *card slot in image view
+.card-slot-image {
+  @include flex-column();
+  margin-right: 20px;
+}
+.card-image {
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999999;
+  cursor: pointer;
+}
+.card-image:hover {
+  transform: scale(-1, 1);
+  opacity: 0;
+}
+
+.slot-price {
+  @include flex-row();
+  justify-content: space-between;
+  background-image: url("../assets/steam_logo.png");
+  background-size: 22px 17px;
+  background-repeat: no-repeat;
+  background-position: 1px 5px;
+  width: 100%;
+  height: 35px;
+  font-size: 1.6rem;
+  span:nth-child(1) {
+    margin-left: 25px;
+  }
+}
+.slot-back {
+  position: relative;
+  top: 0;
+  left: 0;
+  @include flex-column();
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 182px;
+  height: 278px;
+  border: 10px solid #2a2a2a;
+  border-radius: 6px;
+  background: url("../assets/cards/card_loading.png") no-repeat center;
+}
+.slot-back-mask {
+  @include flex-column();
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 42, 42, 0.83);
+}
+
+.back-title {
+  @include flex-row();
+  justify-content: center;
+  font-family: Nunito;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+  font-weight: 400;
+  img {
+    margin-right: 5px;
+  }
+  p {
+    margin: 0;
+  }
+}
+.back-ability {
+  @include flex-column();
+  justify-content: center;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #898989;
+  p {
+    text-align: center;
+    margin: 0;
+  }
+  p:nth-child(2) {
+    margin-top: 12px;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  p:nth-child(3) {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+}
+.back-stats {
+  @include flex-row();
+  justify-content: center;
+  width: 80%;
+  background: url("../assets/cards/back_stat.png") no-repeat center;
+  padding-left: 20%;
+  span {
+    width: 30%;
+  }
+}
+.back-detail-btn {
+  @include flex-row();
+  justify-content: center;
+  width: 152px;
+  height: 28px;
+  border-radius: 3px;
+  background-color: #013799;
+  color: #ffffff;
+  font-family: Radiance;
+  font-size: 1.3rem;
+  font-weight: 300;
+  background-image: url("../assets/cards/detail_arrow.png");
+  background-repeat: no-repeat;
+  background-position: 120px;
+}
+
+.slot-loading-text {
+  @include flex-row();
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  font-size: 1.6rem;
+}
+
+// *card slot in list view
+.card-slot-list {
+  @include flex-column();
+  justify-content: space-around;
+}
+.card-row {
+  @include flex-row();
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 1200px;
+  height: 58px;
+  border-radius: 3px;
+  border-bottom: 3px solid #294a67;
+  background-color: #1b1e1f;
+  margin-bottom: 17px;
+  cursor: pointer;
+}
+.card-row:hover {
+  background-color: #2a2a2a;
+}
+
+.row-title-rarity {
+  @include flex-row();
+  justify-content: space-between;
+  width: 50%;
+  height: 100%;
+  .front-wrapper {
+    @include flex-row();
+    justify-content: space-around;
+    width: 30%;
+  }
+  .back-wrapper {
+    @include flex-row();
+    flex-grow: 2;
+    justify-content: space-between;
+    padding-right: 10px;
+  }
+  span {
+    color: #fefefe;
+    font-family: Nunito;
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+.row-stats-price {
+  @include flex-row();
+  justify-content: space-between;
+  width: 50%;
+  height: 100%;
+}
+
+.row-stats {
+  @include flex-row();
+  justify-content: space-around;
+  width: 50%;
+  color: #fffefe;
+  font-family: Nunito;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  span {
+    @include flex-row();
+    justify-content: flex-end;
+    width: 20%;
+    height: 100%;
+  }
+  span:nth-child(1) {
+    background: url("../assets/cards/stats_atk.png") no-repeat left;
+  }
+  span:nth-child(2) {
+    background: url("../assets/cards/stats_armor.png") no-repeat left;
+  }
+  span:nth-child(3) {
+    background: url("../assets/cards/stats_hp.png") no-repeat left;
+  }
+}
+.row-price {
+  @include flex-row();
+  justify-content: flex-end;
+  margin-left: 15%;
+  width: 50%;
+  color: #6b6b6b;
+  font-family: Nunito;
+  font-size: 1.8rem;
+  font-weight: 400;
+  background: url("../assets/steam_logo.png") no-repeat;
+  background-position: 35px 0px;
+  background-size: 27px 21px;
+  span:nth-child(2) {
+    color: #fefefe;
+    margin-right: 30px;
+  }
+}
+
 // *bottom news search bar
 .search {
   @include flex-row();

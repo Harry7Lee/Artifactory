@@ -33,6 +33,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Nunito";
+  src: url("Nunito.woff2") format("woff2"), url("Nunito.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 a:link,
 a:visited,
 a:hover,
