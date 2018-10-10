@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/cards/Detail/card_detail.css" type="text/css" />
     <script src="/cards/Detail/javascript.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <title>Artifactory</title>
 </head>
 
@@ -91,21 +92,56 @@
                                             <p>BLUE HERO</p>
                                             <p>HOUSE of the WISE</p>
                                         </div>
-                                        <div class="cardInfo-type"></div>
-                                        <div class="cardInfo-rarity"></div>
+                                        <div class="cardInfo-type">
+                                            <img src="/assets/cards/Card_Detail/Card_Detail_Type.png">
+                                            <span>&nbsp;Type:&nbsp;</span>
+                                            <span>Hero</span>
+                                        </div>
+                                        <div class="cardInfo-rarity">
+                                            <img src="/assets/cards/Card_Detail/Card_Detail_Rarity.png">
+                                            <span>&nbsp;Rarity:&nbsp;</span>
+                                            <span>Common</span>
+                                        </div>
                                     </div>
                                     <div class="cardInfo-cost">
-                                        <span>Mana Cost:</span>
-                                        <span>Gold Cost:</span>
-                                        <span>Steam Price:</span>
+                                        <p>Mana Cost:&nbsp;<span>N / A</span></p>
+                                        <p>Gold Cost:&nbsp;<span>N / A</span></p>
+                                        <p>Steam Price:&nbsp;<span class='cardInfo-steamPrice'>$9999.99</span></p>
+                                    </div>
+                                    <div class="cardInfo-ability">
+                                        <p class='cardInfo-boldTag'>ABILITY</p>
+                                        <div class='ability-wrapper'>
+                                            <img src="/assets/cards/Card_Detail/Card_Detail_Ability.png">
+                                            <div class="ability-text-wrapper">
+                                                <p>Concussive Shot</p>
+                                                <p>Give a hero and is allied neigbors -2 Armor this round</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="cardInfo-stats">
+                                        <p class='cardInfo-boldTag'>STATS</p>
                                         <div class="stats-wrapper">
-                                            <div class="cardInfo-attacks"></div>
-                                            <div class="cardInfo-armor"></div>
-                                            <div class="cardInfo-health"></div>
-                                        </div>
-                                        <div class='stats-bluePet'>
+                                            <div class="cardInfo-attacks">
+                                                <div class="stats-icon">
+                                                    <img src="/assets/cards/Card_Detail/Card_Detail_Attack.png">
+                                                    <span>Attack</span>
+                                                </div>
+                                                <span class='stats-digits'>8</span>
+                                            </div>
+                                            <div class="cardInfo-armor">
+                                                <div class="stats-icon">
+                                                    <img src="/assets/cards/Card_Detail/Card_Detail_Armor.png">
+                                                    <span>Armor</span>
+                                                </div>
+                                                <span class='stats-digits'>N/A</span>
+                                            </div>
+                                            <div class="cardInfo-health">
+                                                <div class="stats-icon">
+                                                    <img src="/assets/cards/Card_Detail/Card_Detail_Health.png">
+                                                    <span>Health</span>
+                                                </div>
+                                                <span class='stats-digits'>8</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,16 +149,58 @@
                         </div>
                     </div>
                     <!-- *card spells -->
-                    <div class="card-spells"></div>
+                    <div class="card-spells">
+                        <p class="spell-title">
+                            Signature Spells
+                        </p>
+                        <!-- !use card component when framework is settled -->
+                        <img src="/assets/cards/Card_Detail/Card_Detail_Signature.png">
+                    </div>
                     <!-- *price history -->
-                    <div class="price-history"></div>
+                    <div class="price-history">
+                        <div class="price-title">
+                            <div class="price-title-name">
+                                <P>Steam Price History&nbsp;-&nbsp;
+                                    <img src='/assets/cards/card_avatar.png'>
+                                    <strong>&nbsp;Skywrath Mage</strong>
+                                </P>
+                                <P>12 Jan 2018</P>
+                            </div>
+                            <div class="price-title-wrapper">
+                                <div class="price-title-label">
+                                    <div>
+                                        <span class='label-dot blue-dot'></span>
+                                        <span>Steam Price</span>
+                                    </div>
+                                    <div>
+                                        <span class='label-dot red-dot'></span>
+                                        <span>PlayerAuctions Price</span>
+                                    </div>
+                                </div>
+                                <div class="price-title-high">
+                                    <p>7-DAY HIGH</p>
+                                    <p>$85.23</p>
+                                </div>
+                                <div class="price-title-low">
+                                    <p>7-DAY LOW</p>
+                                    <p>$75.23</p>
+                                </div>
+                                <div class="price-title-current">
+                                    <p>CURRENT</p>
+                                    <p>$87.21</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="position: relative; height:40vh; width:62vw">
+                            <canvas id="myChart" width="1200" height="300"></canvas>
+                        </div>
+                    </div>
                     <!-- *related deck -->
                     <div class="related-deck"></div>
                     <!-- *comments -->
                     <div class="comments"></div>
                 </div>
             </div>
-
             <!-- *bottom news search bar -->
         </div>
         <div class="search">
@@ -179,6 +257,82 @@
             <div class="copyright">© 2018 Artifactory. All rights reserved</div>
         </div>
     </div>
+
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        //steam gradient background
+        var steamBg = ctx.createLinearGradient(0, 0, 0, 180);
+        steamBg.addColorStop(0, "rgba(23,37,155,0.3)");
+        steamBg.addColorStop(0.5, "rgba(23,37,155,0.2)");
+        steamBg.addColorStop(1, "rgba(23,37,155,0.1)");
+        ctx.fillStyle = steamBg;
+        //pa gradient background
+        var paBg = ctx.createLinearGradient(0, 0, 0, 180);
+        paBg.addColorStop(0, "rgba(202,23,58,0.3)");
+        paBg.addColorStop(0.5, "rgba(202,23,58,0.2)");
+        paBg.addColorStop(1, "rgba(202,23,58,0.1)");
+        ctx.fillStyle = paBg;
+        ctx.fillRect(10, 10, 200, 100);
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    label: 'Steam Price',
+                    data: [1, 7, 2, 1, 5, 6],
+                    backgroundColor: steamBg,
+                    borderColor: "rgba(23,37,155,1)",
+                    pointStyle: 'circle',
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointHitRadius: 10,
+                    pointBackgroundColor: "rgba(30,47,204,1)",
+                    pointBorderWidth: 7,
+                    pointBorderColor: "rgba(30,47,204,0.59)",
+                    pointHoverBorderWidth: 15,
+                    pointBorderColor: "rgba(30,47,204,0.59)"
+                }, {
+                    label: 'PA Price',
+                    data: [6, 3, 4, 5, 2, 1],
+                    backgroundColor: paBg,
+                    borderColor: "rgba(202,23,58,1)",
+                    borderWidth: 2,
+                    pointStyle: 'circle',
+                    pointRadius: 5,
+                    pointHoverRadius: 5,
+                    pointHitRadius: 10,
+                    pointBackgroundColor: "rgba(209,27,79,1)",
+                    pointBorderWidth: 7,
+                    pointBorderColor: "rgba(209,27,79,0.59)",
+                    pointHoverBorderWidth: 15,
+                    pointBorderColor: "rgba(209,27,79,0.59)"
+                }]
+            },
+            options: {
+                dataIndex: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 20,
+                        bottom: 0
+                    }
+                },
+                tooltips: {
+                    backgroundColor: 'rgba(0,0,0,1)', titleFontSize: 16, bodyFontSize: 14
+                }, legend: {
+                    display: false,
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
